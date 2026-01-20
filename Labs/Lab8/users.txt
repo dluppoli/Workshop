@@ -1,0 +1,6 @@
+alfa
+beta
+rossi
+bianchi
+user
+guest

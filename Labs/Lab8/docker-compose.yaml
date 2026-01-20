@@ -1,0 +1,22 @@
+networks:
+  vulnlab-net-exam:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.99.0.0/24
+
+services:
+  host:
+    image: dluppoli/privesc:4.0
+    networks:
+      vulnlab-net-exam:
+        ipv4_address: 172.99.0.33
+  mysql:
+    image: mysql:5.5
+    environment:
+      - MYSQL_ROOT_PASSWORD=zzxxccvvbbnnmm
+    networks:
+      vulnlab-net-exam:
+        ipv4_address: 172.99.0.66
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
