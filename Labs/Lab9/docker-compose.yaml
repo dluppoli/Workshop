@@ -1,0 +1,18 @@
+networks:
+  lab9-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.130.0.0/24
+
+volumes:
+  wireguard-data:
+
+services:  
+  appweb:
+    image: dluppoli/provapraticafinale:3
+    container_name: appweb
+    tty: true
+    networks:
+      lab9-net: 
+        ipv4_address: 172.130.0.12
